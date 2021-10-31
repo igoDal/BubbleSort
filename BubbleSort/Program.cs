@@ -6,16 +6,31 @@ namespace BubbleSort
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Podaj liczbe elementow: ");
+            Console.WriteLine("Podaj liczbę elementów: ");
             int.TryParse(Console.ReadLine(), out int howManyElements);
 
             int[] arrayOfEnteredElements = new int[howManyElements];
 
             for (int i = 0; i < arrayOfEnteredElements.Length; i++)
             {
-                Console.WriteLine("Podaj nastepny element: ");
-                bool element = int.TryParse(Console.ReadLine(), out int nextElement);
-                arrayOfEnteredElements[i] = nextElement;
+                Console.WriteLine("Podaj następną liczbę całkowitą: ");
+
+                bool flag = false; 
+                while (!flag)
+                {
+                    
+                    if (!int.TryParse(Console.ReadLine(), out int nextElement))
+                    {
+                        Console.WriteLine("Błędne dane, podaj liczbę całkowitą");
+                    }
+                    else
+                    {
+                        arrayOfEnteredElements[i] = nextElement;
+                        flag = true;
+                    }
+                    
+                }
+                
             }
 
             for (int j = 0; j < arrayOfEnteredElements.Length; j++)
