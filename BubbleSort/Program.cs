@@ -10,6 +10,7 @@ namespace BubbleSort
             int.TryParse(Console.ReadLine(), out int howManyElements);
 
             int[] arrayOfEnteredElements = new int[howManyElements];
+            int counter = 0;
 
             for (int i = 0; i < arrayOfEnteredElements.Length; i++)
             {
@@ -35,7 +36,7 @@ namespace BubbleSort
 
             for (int j = 0; j < arrayOfEnteredElements.Length; j++)
             {
-                for (int i = 0; i < arrayOfEnteredElements.Length -1; i++)
+                for (int i = 0; i < arrayOfEnteredElements.Length-j-1; i++)
                 {
                     if (arrayOfEnteredElements[i] > arrayOfEnteredElements[i+1])
                     {
@@ -43,14 +44,17 @@ namespace BubbleSort
                         arrayOfEnteredElements[i] = arrayOfEnteredElements[i+1];
                         arrayOfEnteredElements[i+1] = temporary;
                     }
+                    counter++;
                 }
 
             }
 
             for (int i = 0; i < arrayOfEnteredElements.Length; i++)
             {
-                Console.Write($"{arrayOfEnteredElements[i]} ");
+                Console.Write($"{arrayOfEnteredElements[i]} \n");
             }
+            Console.WriteLine($"{counter} iterations");
+
 
         }
     }
